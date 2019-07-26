@@ -1,5 +1,5 @@
 sudo su
-
+cd
 export DEBIAN_FRONTEND=noninteractive
 
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
