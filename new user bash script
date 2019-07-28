@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#add new user script
+
+sudo su -c "useradd student -s /bin/bash -m -g $PRIMARYGRP -G $MYGROUP"
+
+sudo chpasswd << 'END'
+student:rammy
+END
