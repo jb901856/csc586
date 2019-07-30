@@ -22,6 +22,8 @@ sudo dpkg-reconfigure slapd
 
 sudo ufw allow ldap
 
+sudo chmod 755 basedn.ldif
 sudo ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -f basedn.ldif
 
+sudo chmod 755 users.ldif
 sudo ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -F users.ldif
