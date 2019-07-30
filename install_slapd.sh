@@ -2,7 +2,6 @@
 #log into ldapserver
 
 apt-get update
-apt-get install debconf-utils
 
 export DEBIAN_FRONTEND='non-interactive'
 
