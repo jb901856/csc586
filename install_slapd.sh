@@ -18,11 +18,11 @@ ufw allow ldap
 ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -f basedn.ldif
 
 
-ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -F users.ldif
+#ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -F users.ldif
 
-cd clnodevm109-1.clemson.cloudlab.us
+#cd clnodevm109-1.clemson.cloudlab.us
 
-sudo apt-get update
+#sudo apt-get update
 
-sudo apt install -y libnss-ldap libpam-ldap ldap-utils
+#sudo apt install -y libnss-ldap libpam-ldap ldap-utils
 
