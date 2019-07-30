@@ -16,8 +16,7 @@ sudo echo -e "slapd slapd/purge_database boolean false" |debconf-set-selections
 sudo echo -e "slapd slapd/no_configuration boolean false" |debconf-set-selections
 sudo echo -e "slapd slapd/backend select MDB" |debconf-set-selctions
 
-sudo export DEBIAN_FRONTEND=noninteractive
-sudo apt-get install -y slapd ldap-utils
+sudo export DEBIAN_FRONTEND=noninteractive apt-get install -y slapd ldap-utils
 
 sudo dpkg-reconfigure slapd
 
