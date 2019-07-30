@@ -3,7 +3,6 @@
 #enter sudo su to run
 
 apt-get update
-apt-get install debconf-utils
 
 export DEBIAN_FRONTEND='non-interactive'
 echo -e " \
