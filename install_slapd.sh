@@ -2,6 +2,7 @@
 #log into ldapserver
 
 sudo apt-get update
+sudo mkdir /var/cache/debconf
 sudo apt-get install debconf-utils
 
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
