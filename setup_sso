@@ -1,9 +1,11 @@
 #!/bin/bash
 #log into ldapclient
+#enter sudo su to run
 
-sudo apt-get update
-sudo apt-get install debconf-utils
+apt-get update
+apt-get install debconf-utils
 
+export DEBIAN_FRONTEND='non-interactive'
 echo -e " \
 libnss-ldap libnss-ldap/dblogin boolean false
 libnss-ldap shared/ldapns/base-dn   string  dc=clemson,dc=cloudlab,dc=us
@@ -17,4 +19,4 @@ libnss-ldap shared/ldapns/ldap_version  select  3
 libnss-ldap libnss-ldap/nsswitch    note    \
 " | debconf-set-selections
 
-sudo export DEBIAN_FRONTEND=noninteractive apt install -y libnss-ldap libpam-ldap ldap-utils
+apt install -y libnss-ldap libpam-ldap ldap-utils
