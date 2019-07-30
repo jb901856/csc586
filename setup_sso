@@ -1,4 +1,5 @@
 #!/bin/bash
+#log into ldapclient
 
 sudo apt-get update
 
