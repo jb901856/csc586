@@ -1,5 +1,6 @@
 #!/bin/bash
 #log into ldapserver
+#log into sudo su in order to run
 
 apt-get update
 
