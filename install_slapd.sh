@@ -4,7 +4,7 @@
 sudo apt-get update
 sudo apt-get install debconf-utils
 
-sudo export DEBIAN_FRONTEND='non-interactive'
+export DEBIAN_FRONTEND='non-interactive'
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
 echo -e "slapd slapd/root_password_again password 123" |debconf-set-selections
 echo -e "slapd slapd/internal/adminpw password 123" |debconf-set-selections
@@ -18,7 +18,7 @@ echo -e "slapd slapd/purge_database boolean false" |debconf-set-selections
 echo -e "slapd slapd/no_configuration boolean false" |debconf-set-selections
 echo -e "slapd slapd/backend select MDB" |debconf-set-selections
 
- apt-get install -y slapd ldap-utils
+apt-get install -y slapd ldap-utils
 
 sudo dpkg-reconfigure slapd
 
