@@ -28,4 +28,4 @@ sudo chmod 755 basedn.ldif
 ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -f basedn.ldif
 
 sudo chmod 755 users.ldif
-ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -F users.ldif
+ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -f users.ldif
