@@ -1,4 +1,5 @@
 sudo su
+apt-get update
 cd
 export DEBIAN_FRONTEND=noninteractive
 
