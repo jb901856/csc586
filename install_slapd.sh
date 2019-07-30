@@ -2,7 +2,6 @@
 #log into ldapserver
 
 apt-get update
-apt-get install debconf-utils
 
 export DEBIAN_FRONTEND='non-interactive'
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
