@@ -2,6 +2,7 @@
 #log into ldapclient
 
 sudo apt-get update
+sudo apt-get install debconf-utils
 
 echo -e " \
 libnss-ldap libnss-ldap/dblogin boolean false
