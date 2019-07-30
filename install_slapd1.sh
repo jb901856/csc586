@@ -1,7 +1,7 @@
 #!/bin/bash
 #log into ldapserver
 
-apt-get update
+sudo apt-get update
 
 export DEBIAN_FRONTEND='non-interactive'
 
@@ -18,7 +18,7 @@ echo -e "slapd slapd/purge_database boolean false" |debconf-set-selections
 echo -e "slapd slapd/no_configuration boolean false" |debconf-set-selections
 echo -e "slapd slapd/backend select MDB" |debconf-set-selections
 
-apt-get install -y slapd ldap-utils
+sudo apt-get install ldap-utils slapd -q -y
 
 sudo dpkg-reconfigure slapd
 
