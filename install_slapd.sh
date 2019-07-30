@@ -5,6 +5,7 @@ apt-get update
 apt-get install debconf-utils
 
 export DEBIAN_FRONTEND='non-interactive'
+
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
 echo -e "slapd slapd/root_password_again password 123" |debconf-set-selections
 echo -e "slapd slapd/internal/adminpw password 123" |debconf-set-selections
@@ -25,7 +26,7 @@ sudo dpkg-reconfigure slapd
 sudo ufw allow ldap
 
 sudo chmod 755 basedn.ldif
-sudo ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -f basedn.ldif
+ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -f basedn.ldif
 
 sudo chmod 755 users.ldif
-sudo ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -W -F users.ldif
+ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -F users.ldif
