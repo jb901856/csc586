@@ -1,8 +1,8 @@
 #!/bin/bash
 #log into ldapclient
-#enter sudo su to run
+#log into sudo su in order to run
 
-apt-get update
+sudo apt-get update
 
 export DEBIAN_FRONTEND='non-interactive'
 echo -e " \
@@ -18,7 +18,7 @@ libnss-ldap shared/ldapns/ldap_version  select  3
 libnss-ldap libnss-ldap/nsswitch    note    \
 " | debconf-set-selections
 
-apt install -y libnss-ldap libpam-ldap ldap-utils
+sudo apt install -y -q libnss-ldap -y libpam-ldap ldap-utils
 
 sudo sed -i 's/uri ldapi:\/\/\//uri ldap:\/\/192.168.1.1\//g' /etc/ldap.conf
 sudo sed -i 's/base dc=example,dc=net/base dc=clemson,dc=cloudlab,dc=us/g' /etc/ldap.conf
