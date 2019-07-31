@@ -1,9 +1,10 @@
 #!/bin/bash
 #log into ldapserver
+#please lof into sudo su in order to run
 
-sudo apt-get update
+apt-get update
 
-export DEBIAN_FRONTEND='non-interactive'
+export DEBIAN_FRONTEND=noninteractive
 
 echo -e "slapd slapd/root_password password 123" |debconf-set-selections
 echo -e "slapd slapd/root_password_again password 123" |debconf-set-selections
@@ -18,7 +19,7 @@ echo -e "slapd slapd/purge_database boolean false" |debconf-set-selections
 echo -e "slapd slapd/no_configuration boolean false" |debconf-set-selections
 echo -e "slapd slapd/backend select MDB" |debconf-set-selections
 
-sudo apt-get install ldap-utils slapd -q -y
+apt-get install ldap-utils slapd -q -y
 
 sudo dpkg-reconfigure slapd
 
