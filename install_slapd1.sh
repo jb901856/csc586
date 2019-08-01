@@ -25,6 +25,27 @@ sudo apt-get install ldap-utils slapd -q -y
 
 sudo dpkg-reconfigure slapd
 
+stu_pwd="rammy"
+ssopass=$(slappasswd -s $stu_pwd)
+
+cat <<EOF > /local/repository/users.ldif
+dn: uid=student,ou=People,dc=clemson,dc=cloudlab,dc=us
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: student
+sn: Ram
+givenName: Golden
+cn: student
+displayName: student
+uidNumber: 10000
+gidNumber: 5000
+userPassword: $ssopass
+gecos: Golden Ram
+loginShell: /bin/dash
+homeDirectory: /home/student
+EOF
+
 sudo ufw allow ldap
 
 sudo chmod 755 basedn.ldif
