@@ -2,11 +2,15 @@
 
 #By Jeff Bowker
 #csc586 Assignment 2
-#log into ldapclient
+#this will set up the sso on the client machine
 
+#update the machine
 sudo apt-get update
 
+#set in interactive mode
 export DEBIAN_FRONTEND=noninteractive
+
+#set the debconf-set-selections for libnss
 echo -e " \
 libnss-ldap libnss-ldap/dblogin boolean false
 libnss-ldap shared/ldapns/base-dn   string  dc=clemson,dc=cloudlab,dc=us
@@ -20,8 +24,10 @@ libnss-ldap shared/ldapns/ldap_version  select  3
 libnss-ldap libnss-ldap/nsswitch    note    \
 " | sudo debconf-set-selections
 
+#install libnss
 sudo apt install -y -q libnss-ldap -y libpam-ldap ldap-utils
 
+#update the ldap.conf files and pam.d files to settings
 sudo sed -i 's/uri ldapi:\/\/\//uri ldap:\/\/192.168.1.1\//g' /etc/ldap.conf
 sudo sed -i 's/base dc=example,dc=net/base dc=clemson,dc=cloudlab,dc=us/g' /etc/ldap.conf
 sudo sed -i 's/rootbinddn cn=manager,dc=example,dc=net/rootbinddn cn=admin,dc=clemson,dc=cloudlab,dc=us/g' /etc/ldap.conf
@@ -34,5 +40,5 @@ echo 123 > /etc/ldap.secret
 EOF
 sudo chmod 600 /etc/ldap.secret
 
-#fetches and prints details for a particular user 
+#prints user details to ensure setup is successful 
 getent passwd student
