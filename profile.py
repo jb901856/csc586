@@ -18,9 +18,9 @@ link = request.LAN("lan")
 
 for i in range(2):
   if i == 0:
-    node = request.XenVM("ldapserver")    
+    node = request.RawPC("ldapserver")    
   else:
-    node = request.XenVM("ldapclient")
+    node = request.RawPC("ldapclient")
    
   node.routable_control_ip = "true"  
   node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:UBUNTU18-64-STD"
