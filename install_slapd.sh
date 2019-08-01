@@ -49,7 +49,7 @@ EOF
 sudo ufw allow ldap
 
 sudo chmod 755 basedn.ldif
-ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -f basedn.ldif
+ldapadd -f /local/repository/basedn.ldif -x -D "cn=admin,dc=clemson,dc=cloudlab,dc=us" -w 123
 
 sudo chmod 755 users.ldif
-ldapadd -x -D cn=admin,dc=clemson,dc=cloudlab,dc=us -w 123 -f users.ldif
+ldapadd -f /local/repository/users.ldif -x -D "cn=admin,dc=clemson,dc=cloudlab,dc=us" -w 123
