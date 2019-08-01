@@ -39,6 +39,3 @@ sudo bash <<EOF
 echo 123 > /etc/ldap.secret
 EOF
 sudo chmod 600 /etc/ldap.secret
-
-#prints user details to ensure setup is successful 
-getent passwd student
