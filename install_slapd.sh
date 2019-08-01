@@ -31,8 +31,7 @@ sudo apt-get install ldap-utils slapd -q -y
 sudo dpkg-reconfigure slapd
 
 #set ssopassword for the student account
-stu_pwd="rammy"
-ssopass=$(slappasswd -s $stu_pwd)
+ssopass=$(slappasswd -s rammy)
 
 #add the new password to the users.ldif files
 cat <<EOF > /local/repository/users.ldif
@@ -57,8 +56,6 @@ EOF
 sudo ufw allow ldap
 
 #add in the slapd repositories
-sudo chmod 755 basedn.ldif
 ldapadd -f /local/repository/basedn.ldif -x -D "cn=admin,dc=clemson,dc=cloudlab,dc=us" -w 123
 
-sudo chmod 755 users.ldif
 ldapadd -f /local/repository/users.ldif -x -D "cn=admin,dc=clemson,dc=cloudlab,dc=us" -w 123
