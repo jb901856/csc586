@@ -1,10 +1,12 @@
 #!/bin/bash
+
+#By Jeff Bowker
+#csc586 Assignment 2
 #log into ldapclient
-#log into sudo su in order to run
 
 sudo apt-get update
 
-export DEBIAN_FRONTEND='non-interactive'
+export DEBIAN_FRONTEND=noninteractive
 echo -e " \
 libnss-ldap libnss-ldap/dblogin boolean false
 libnss-ldap shared/ldapns/base-dn   string  dc=clemson,dc=cloudlab,dc=us
@@ -16,7 +18,7 @@ libnss-ldap libnss-ldap/confperm    boolean false
 libnss-ldap libnss-ldap/rootbinddn  string  cn=admin,dc=example,dc=com
 libnss-ldap shared/ldapns/ldap_version  select  3
 libnss-ldap libnss-ldap/nsswitch    note    \
-" | debconf-set-selections
+" | sudo debconf-set-selections
 
 sudo apt install -y -q libnss-ldap -y libpam-ldap ldap-utils
 
